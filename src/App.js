@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Profile from './profile.js'
+import Header from './header.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function Gallery(){
+  const info = Profile.map(Profile =>
+    <li key={Profile.id}>
+      {Profile.name},
+      {Profile.role},
+      <img src={Profile.photo}></img>
+    </li>
+  )
+  const place = Header.map(Header =>
+    <li key={Header.id}>
+      {Header.id}
+    </li>
+  )
+  return <ul>{info}{place}</ul>
 }
 
-export default App;
+export default Gallery;
